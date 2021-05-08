@@ -1,0 +1,8 @@
+.idea/
+.pytest_cache
+praetorian-fabric.egg-info
+build
+dist
+venv
+__pycache__/
+praetorian_fabric/__pycache__/
