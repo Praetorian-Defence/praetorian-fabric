@@ -22,7 +22,6 @@ class PraetorianConfig:
         self._project = self._api_client.project.list(user_id=self._user.id, name=project_name)[0]
 
         self._remote = None
-        self._service = None
         self._variables = None
         self._temporary_user = None
 
@@ -39,13 +38,12 @@ class PraetorianConfig:
             value = self._variables.get(name)
         return value
 
-    def connect(self, ctx: Context, remote_name: str, environment: str) -> Connection:
+    def connect(self, ctx: Context, remote_name: str) -> Connection:
         self._remote = self._api_client.remote.list(project_id=self._project.id, name=remote_name)[0]
-        self._service = self._api_client.service.list(remote_id=self._remote.id, name=environment)[0]
-        self._variables = self._service.variables
+        self._variables = self._remote.variables
 
         self._temporary_user = self._api_client.user.create_temporary(
-            project_id=self._project.id, remote_id=self._remote.id, service_id=self._service.id
+            project_id=self._project.id, remote_id=self._remote.id
         )
 
         ctx.host = os.getenv('PROXY_HOST')

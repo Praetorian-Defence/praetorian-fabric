@@ -43,15 +43,15 @@ praetorian_config = PraetorianConfig(project_name='foo project')
 
 ```python
 @task
-def deploy(ctx, remote_name, environment):
-    ctx = praetorian_config.connect(ctx, remote_name, environment)
+def deploy(ctx, remote_name):
+    ctx = praetorian_config.connect(ctx, remote_name)
 ```
 ####5. Get variables by dot notation anywhere in your tasks:
 
 ```python
 @task
-def deploy(ctx, remote_name, environment):
-    ctx = praetorian_config.connect(ctx, remote_name, environment)
+def deploy(ctx, remote_name):
+    ctx = praetorian_config.connect(ctx, remote_name)
 
     variable = praetorian_config.get_variable('variable_name')
 
