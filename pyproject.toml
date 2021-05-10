@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "praetorian-fabric"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = ["Adam Žúrek <adamzurek14@gmail.com>"]
 license = "MIT"
@@ -9,7 +9,7 @@ license = "MIT"
 python = "^3.8"
 python-dotenv = "^0.15.0"
 fabric = "^2.5.0"
-praetorian-api-client = "^0.4.3"
+praetorian-api-client = "^0.4.4"
 
 [tool.poetry.dev-dependencies]
 

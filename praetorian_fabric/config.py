@@ -31,7 +31,10 @@ class PraetorianConfig:
             temp_variables = self._variables
 
             for nested_variable in nested_variables:
-                temp_variables = temp_variables.get(nested_variable)
+                if temp_variables:
+                    temp_variables = temp_variables.get(nested_variable)
+                else:
+                    break
 
             value = temp_variables
         else:
